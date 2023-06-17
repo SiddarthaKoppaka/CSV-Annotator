@@ -5,7 +5,6 @@ import base64
 # Function to load data from a CSV file
 
 
-@st.cache_data
 def load_data(file_path):
     df = pd.read_csv(file_path)
     return df
@@ -19,6 +18,7 @@ def save_data(df, file_path):
 # Function to create a download link for a file
 
 
+@st.cache_data
 def create_download_link(df, file_name):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()
@@ -51,8 +51,8 @@ def main():
             st.write(sentence)
 
             # Annotation options
-            annotation = st.radio(
-                f"Annotation {index+1}:", ('Positive', 'Negative'), key=f"annotation_{index}")
+            annotation = st.radio('Annotaion', ('Positive', 'Negative'))
+            print(annotation)
 
             # Save the annotation
             annotations[index] = annotation

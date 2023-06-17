@@ -51,7 +51,7 @@ def main():
             st.write(sentence)
 
             # Annotation options
-            annotation = st.radio(f'Annotaion{index+1}:', ('Positive', 'Negative', 'Irrelevant'))
+            annotation = st.radio('Annotaion'{index+1}':', ('Positive', 'Negative', 'Irrelevant'))
             #print(annotation)
 
             # Save the annotation

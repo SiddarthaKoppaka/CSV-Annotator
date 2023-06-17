@@ -48,10 +48,11 @@ def main():
             # Get the current question and display it
             sentence = df.loc[index, 'Content']
             st.subheader("Sentence:")
+            st.text(f'Sentence No - {index+1} :')
             st.write(sentence)
 
             # Annotation options
-            annotation = st.radio('Annotaion'{index+1}':', ('Positive', 'Negative', 'Irrelevant'))
+            annotation = st.radio('Annotaions : ', ('Positive', 'Negative', 'Irrelevant'))
             #print(annotation)
 
             # Save the annotation

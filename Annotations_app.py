@@ -66,18 +66,9 @@ def main():
             st.session_state['annotations'] = annotations
 
             # Show the navigation buttons
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                if index > 1:
-                    # Show the backward button
-                    backward_button = st.button("Backward")
-                    if backward_button:
-                        # Decrement the index to go to the previous question
-                        index -= 2
-                        # Update the session state
-                        st.session_state['index'] = index
+            col1, col2 = st.columns(2)
 
-            with col2:
+            with col1:
                 # Show the next button
                 next_button = st.button("Next Question")
                 if next_button:
@@ -99,7 +90,7 @@ def main():
                         # Show completion message
                         st.success("Annotation process completed.")
 
-            with col3:
+            with col2:
                 # Show the Save and Download button
                 if st.button("Save and Download"):
                     # Create a new DataFrame to store the annotations
@@ -119,16 +110,16 @@ def main():
                     st.success("Annotations saved and downloaded.")
 
         # Check if annotations are available
-        if any(annotations):
+        #if any(annotations):
             # Provide a download link for the current annotations
-            if st.button("Download Current Annotations"):
+            #if st.button("Download Current Annotations"):
                 # Create a new DataFrame for the current annotations
-                current_annotations_df = pd.DataFrame(
-                    {'Content': df['Content'][:index], 'Annotation': annotations[:index]})
+                #current_annotations_df = pd.DataFrame(
+                    #{'Content': df['Content'][:index], 'Annotation': annotations[:index]})
 
                 # Provide a download link for the current annotations
-                st.markdown(create_download_link(
-                    current_annotations_df, f"{file_name}_current_annotations.csv"), unsafe_allow_html=True)
+                #st.markdown(create_download_link(
+                    #current_annotations_df, f"{file_name}_current_annotations.csv"), unsafe_allow_html=True)
 
 
 # Run the app

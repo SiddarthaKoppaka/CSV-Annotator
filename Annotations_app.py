@@ -52,7 +52,7 @@ def main():
 
             # Annotation options
             annotation = st.radio(f'Annotaion{index+1}:', ('Positive', 'Negative'))
-            print(annotation)
+            #print(annotation)
 
             # Save the annotation
             annotations[index] = annotation
